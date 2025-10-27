@@ -1,0 +1,185 @@
+.restaurants {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fffaf0, #fff3e0);
+  font-family: 'Poppins', sans-serif;
+  margin: 80px 0; /* spacing between previous and next section */
+  border-radius: 30px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+.restaurants h2 {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #ff5722;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.restaurants h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #ff5722;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  perspective: 1200px;
+}
+
+.restaurant-card {
+  width: 260px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.5s ease;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+}
+
+.restaurant-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,87,34,0.15), transparent 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.restaurant-card:hover::before {
+  opacity: 1;
+}
+
+.restaurant-card:hover {
+  transform: rotateY(8deg) rotateX(3deg) scale(1.08);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 3px solid #ffccbc;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-radius: 0 0 20px 20px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.restaurant-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+  filter: brightness(1.1);
+}
+
+/* Badge & Ribbon */
+.restaurant-card .badge {
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  background: #ff5722;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.restaurant-card .offer {
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  background: #ff9800;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Info section */
+.restaurant-info {
+  padding: 20px 15px;
+  position: relative;
+}
+
+.restaurant-info h3 {
+  font-size: 20px;
+  color: #ff5722;
+  margin: 8px 0;
+  transition: color 0.3s;
+}
+
+.restaurant-card:hover h3 {
+  color: #e64a19;
+}
+
+.cuisine {
+  color: #757575;
+  font-size: 14px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.rating {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* Hover popup / tooltip */
+.restaurant-card .popup {
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  padding: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+
+.restaurant-card:hover .popup {
+  bottom: 10px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup p {
+  font-size: 13px;
+  color: #333;
+  margin: 5px 0;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}

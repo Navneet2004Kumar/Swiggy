@@ -1,0 +1,107 @@
+.categories {
+  text-align: center;
+  padding: 60px 20px; /* reduced padding for compactness */
+  background: linear-gradient(135deg, #fff7e6, #ffe0b2);
+  font-family: 'Poppins', sans-serif;
+  border-radius: 30px;
+  max-width: 1200px;
+  margin: 40px auto; /* centered with some spacing */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  position: relative;
+  min-height: 400px; /* ensures section is not too tall */
+}
+
+.categories h2 {
+  font-size: 32px; /* slightly smaller for compactness */
+  margin-bottom: 40px;
+  color: #ff6f00;
+  letter-spacing: 1px;
+  position: relative;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.categories h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #ff6f00;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  perspective: 1000px; /* 3D effect */
+  max-height: 300px; /* optional: ensures card row stays compact */
+}
+
+.category-card {
+  width: 140px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  padding: 15px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,111,0,0.15), transparent 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.category-card:hover::before {
+  opacity: 1;
+}
+
+.category-card:hover {
+  transform: rotateY(8deg) rotateX(5deg) translateY(-8px) scale(1.07);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.category-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.category-card:hover img {
+  transform: rotate(12deg) scale(1.12);
+  filter: drop-shadow(0 6px 20px rgba(255,111,0,0.35));
+}
+
+.category-card p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #e65100;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.category-card:hover p {
+  color: #ff6f00;
+  transform: translateY(-3px);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
